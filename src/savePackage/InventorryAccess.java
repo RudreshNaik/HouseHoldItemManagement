@@ -6,10 +6,10 @@ import java.util.List;
 public class InventorryAccess {
 	static Inventory inventory = new Inventory();
 	
-	public static List<Item> call_getAllItems(){
+	protected static List<Item> callGetAllItems(){
 		return inventory.getAllItems();
 	}
-	public static void call_addItem(Item item){
+	protected static void callAddItem(Item item){
 		inventory.addItem(item);
 	}
 }
