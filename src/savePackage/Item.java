@@ -6,54 +6,53 @@ public class Item {
 	private String name;
 	private Date purchaseDate,expectedFinishDate;
 	private int originalQty,remainingQty;
-	public status statusOfItem;
-	public units unitOfItem;
+	private status statusOfItem;
+	private units unitOfItem;
 	public Item(){
 		
 	}
-	protected String getName(){
+	public String getName(){
 		return this.name;
 	}
-	protected void setName(String given){
+	public void setName(String given){
 		this.name = given;
 	}
-	protected Date getPurchaseDate(){
+	public Date getPurchaseDate(){
 		return this.purchaseDate;
 	}
-	protected void setPurchaseDate(Date d){
+	public void setPurchaseDate(Date d){
 		this.purchaseDate = d;
 	}
-	protected Date getExpectedFinishDate(){
+	public Date getExpectedFinishDate(){
 		return this.expectedFinishDate;
 	}
-	protected void setExpectedFinishDate(Date d){
+	public void setExpectedFinishDate(Date d){
 		this.expectedFinishDate = d;
 	}
-	protected int getOriginalQty(){
+	public int getOriginalQty(){
 		return this.originalQty;
 	}
-	protected void setOriginalQty(int Qty){
+	public void setOriginalQty(int Qty){
 		this.originalQty = Qty;
 	}
-	protected int getRemainingQty(){
+	public int getRemainingQty(){
 		return this.remainingQty;
 	}
-	protected void setRemainingQty(int Qty){
+	public void setRemainingQty(int Qty){
 		this.remainingQty = Qty;
 	}
-	/*
-	protected status getStatus(){
+	public status getStatus(){
 		return this.statusOfItem;
 	}
-	protected void setStatus(status s){
+	public void setStatus(status s){
 		this.statusOfItem = s;
 	}
-	protected units getUnitOfItem(){
+	public units getUnitOfItem(){
 		return this.unitOfItem;
 	}
-	protected void setUnitOfItem(units s){
+	public void setUnitOfItem(units s){
 		this.unitOfItem = s;
 	}
-	*/
+	
 }
 

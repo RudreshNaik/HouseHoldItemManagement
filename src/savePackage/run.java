@@ -3,9 +3,11 @@ package savePackage;
 
 
 import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+//import java.util.Date;
 import java.util.List;
 import java.util.ListIterator;
-
 
 
 public class run {
@@ -18,23 +20,33 @@ public class run {
 			Item test = iter.next();
 			System.out.println(test.getName() + " purchased  on "+test.getPurchaseDate());
 		}
-		Date d1 = new Date(2016-05-24);
-		Date d2 = new Date(2016-06-02);
+		
+		String currentDateString1 = "02/27/2012 17:00:00",currentDateString2 = "03/15/2012";
+		SimpleDateFormat sd = new SimpleDateFormat("MM/dd/yyyy");
+		Date currentDate1= null,currentDate2 = null;
+		   
+		try {
+			currentDate1 = new Date(sd.parse(currentDateString1).getTime());
+			currentDate2 = new Date(sd.parse(currentDateString2).getTime());
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//Adding the attributes of the item to be added.
 		Item add = new Item();
 		add.setName("tomato");
-		add.setPurchaseDate(d1);
-		add.setExpectedFinishDate(d2);
+		add.setPurchaseDate(currentDate1);
+		add.setExpectedFinishDate(currentDate2);
 		add.setOriginalQty(1000);
 		add.setRemainingQty(500);
-		add.unitOfItem = units.Kgs;
-		add.statusOfItem = status.inStock;
-		ia.callAddItem(add);
+		add.setUnitOfItem(units.KG);
+		add.setStatus(status.IN_STOCK);
+		ia.callAddItem(add);	
 		answer = ia.callGetAllItems();
 		iter = answer.listIterator();
 		while(iter.hasNext()){
 			Item tempor = iter.next();
-			System.out.println(tempor.getName() + " purchased  on "+tempor.getPurchaseDate()+" with a remaining quantity of "+tempor.getRemainingQty()+tempor.unitOfItem);
-					
+			System.out.println(tempor.getName() + " purchased  on "+tempor.getPurchaseDate()+" with a remaining quantity of "+tempor.getRemainingQty()+tempor.getUnitOfItem());
 		}
 	}
 }

@@ -1,5 +1,5 @@
 package savePackage;
 
 public enum units {
-	Kgs,Gms,Tons;
+	KG,GM,TON;
 }

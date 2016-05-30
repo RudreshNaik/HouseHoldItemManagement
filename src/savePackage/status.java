@@ -1,5 +1,5 @@
 package savePackage;
 
 public enum status {
-	inStock, notInStock;
+	IN_STOCK,OUT_OF_STOCK;
 }
