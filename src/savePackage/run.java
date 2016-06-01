@@ -23,15 +23,18 @@ public class run {
 		
 		String currentDateString1 = "02/27/2012 17:00:00",currentDateString2 = "03/15/2012";
 		SimpleDateFormat sd = new SimpleDateFormat("MM/dd/yyyy");
+		//java.sql.date
 		Date currentDate1= null,currentDate2 = null;
 		   
 		try {
+			//sd.parse return java.util.date.
 			currentDate1 = new Date(sd.parse(currentDateString1).getTime());
 			currentDate2 = new Date(sd.parse(currentDateString2).getTime());
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		//Adding the attributes of the item to be added.
 		Item add = new Item();
 		add.setName("tomato");
@@ -48,5 +51,6 @@ public class run {
 			Item tempor = iter.next();
 			System.out.println(tempor.getName() + " purchased  on "+tempor.getPurchaseDate()+" with a remaining quantity of "+tempor.getRemainingQty()+tempor.getUnitOfItem());
 		}
+		
 	}
 }
