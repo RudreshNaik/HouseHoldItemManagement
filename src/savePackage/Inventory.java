@@ -42,7 +42,7 @@ public class Inventory{
 			while(rs.next()){
 				temp = new Item();
 				temp.setName(rs.getString("name"));
-				temp.setPurchaseDate(rs.getDate("dateOfPurchase"));
+				temp.setPurchaseDate(rs.getDate("dateOfPurchase").toString());
 				list.add(temp);
 			}
 		}catch(SQLException se){
@@ -56,18 +56,22 @@ public class Inventory{
 			}
 		}
 		return list;
+		
 	}
 	
 	protected static void addItem(Item i){
+		
 		try{
 			if(conn.isClosed())
 				conn = DriverManager.getConnection(configuration.DB_URL,configuration.USER,configuration.PASS);
 			String query = "INSERT INTO items(name,dateOfPurchase,expectedFinishDate,originalQty, remainingQty,units,status) VALUES (?,?,?,?,?,?,?)";
 			PreparedStatement stmt = conn.prepareStatement(query);
 			stmt.setString(1, i.getName());
-			stmt.setDate(2, i.getPurchaseDate());stmt.setDate(3, i.getExpectedFinishDate());
+			stmt.setDate(2, Utility.stringToSqlDate(i.getPurchaseDate(),"yyyy-dd-MM"));
+			stmt.setDate(3, Utility.stringToSqlDate(i.getExpectedFinishDate(),"yyyy-dd-MM"));
 			stmt.setInt(4, i.getOriginalQty());stmt.setInt(5, i.getRemainingQty());
-			stmt.setString(6, i.getUnitOfItem().toString());stmt.setString(7, i.getStatus().toString());
+			stmt.setString(6, i.getUnitOfItem());
+			stmt.setString(7, i.getStatusOfItem());
 			stmt.executeUpdate();
 		}catch(SQLException se){
 			se.printStackTrace();

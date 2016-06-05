@@ -1,34 +1,40 @@
 package savePackage;
 import java.sql.*;
 
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement
 public class Item {
+	
 	private String name;
-	private Date purchaseDate,expectedFinishDate;
+	private String purchaseDate,expectedFinishDate;
 	private int originalQty,remainingQty;
-	private status statusOfItem;
-	private units unitOfItem;
+	private String statusOfItem;
+	private String unitOfItem;
+	
 	public Item(){
 		
 	}
+	
 	public String getName(){
 		return this.name;
 	}
 	public void setName(String given){
 		this.name = given;
 	}
-	public Date getPurchaseDate(){
+	public String getPurchaseDate(){
 		return this.purchaseDate;
 	}
-	public void setPurchaseDate(Date d){
+	public void setPurchaseDate(String d){
 		this.purchaseDate = d;
 	}
-	public Date getExpectedFinishDate(){
+	public String getExpectedFinishDate(){
 		return this.expectedFinishDate;
 	}
-	public void setExpectedFinishDate(Date d){
+	public void setExpectedFinishDate(String d){
 		this.expectedFinishDate = d;
 	}
+	
 	public int getOriginalQty(){
 		return this.originalQty;
 	}
@@ -41,16 +47,16 @@ public class Item {
 	public void setRemainingQty(int Qty){
 		this.remainingQty = Qty;
 	}
-	public status getStatus(){
+	public String getStatusOfItem(){
 		return this.statusOfItem;
 	}
-	public void setStatus(status s){
+	public void setStatusOfItem(String s){
 		this.statusOfItem = s;
 	}
-	public units getUnitOfItem(){
+	public String getUnitOfItem(){
 		return this.unitOfItem;
 	}
-	public void setUnitOfItem(units s){
+	public void setUnitOfItem(String s){
 		this.unitOfItem = s;
 	}
 	

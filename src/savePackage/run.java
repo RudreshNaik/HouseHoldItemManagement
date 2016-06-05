@@ -9,9 +9,17 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.ListIterator;
 
+import org.apache.cxf.jaxrs.JAXRSServerFactoryBean;
+
 
 public class run {
 	public static void main(String args[]){
+	JAXRSServerFactoryBean sf = new JAXRSServerFactoryBean();
+	sf.setResourceClasses(InventorryAccess.class);
+	sf.setAddress("http://localhost:8090");
+	sf.create();
+	
+	/*
 		InventorryAccess ia = new InventorryAccess();
 		List<Item> answer = null;
 		answer = ia.callGetAllItems();
@@ -51,6 +59,6 @@ public class run {
 			Item tempor = iter.next();
 			System.out.println(tempor.getName() + " purchased  on "+tempor.getPurchaseDate()+" with a remaining quantity of "+tempor.getRemainingQty()+tempor.getUnitOfItem());
 		}
-		
+	*/	
 	}
 }
